@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^contact/$', views.contact, name='contact'),
     url(r'^search/', views.search, name='search'),
     url(r'^archive/(?P<year>[0-9]{4})/(?P<month>[0-9]{1,2})/', views.archive,name='archive'),
+    url(r'^long/profile/$', views.long_profile, name='long_profile'),
     url(r'^$', views.aboutme, name='aboutme')
 ]

@@ -47,3 +47,6 @@ def category(request, pk):
 def archive(request, year, month):
     post_list = Post.objects.filter(created_time__year=year, created_time__month=month).order_by('-created_time')
     return render(request, 'iblog/index.html', {'post_list':post_list})
+
+def long_profile(request):
+    return render(request, 'iblog/full-aboutme.html')
