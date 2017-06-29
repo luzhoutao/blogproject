@@ -1,0 +1,34 @@
+{%extends 'base.html'%}
+
+{% block main %}
+
+<p>{{ err_msg }}</p>
+
+{% for post in post_list %}
+<article class="post post-1">
+    <header class="entry-header">
+        <h1 class="entry-title">
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        </h1>
+        <div class="entry-meta">
+            <span class="post-category"><a href="#">{{ post.category.name }}</a></span>
+            <span class="post-date"><a href="#"><time class="entry-date"
+                datetime="{{ post.created_time }}">{{ post.created_time.date }}</time></a></span>
+            <span class="post-author"><a href="#">{{ post.auth }}</a></span>
+            <span class="comments-link"><a href="{%url 'iblog:detail' post.id%}#comment-list-panel">{{post.comment_set.count}} Comment(s)</a></span>
+            <span class="views-count"><a href="#">588 Read</a></span>
+        </div>
+    </header>
+    <div class="entry-content clearfix">
+        <p>{{post.excerpt}}</p>
+        <div class="read-more cl-effect-14">
+            <a href="{{post.get_absolute_url}}" class="more-link">Read More<span class="meta-nav">→</span></a>
+        </div>
+    </div>
+</article>
+<hr>
+{% empty %}
+<div class='no-post'>No result found in his blog!</div>
+{% endfor %}
+
+{% endblock %}
