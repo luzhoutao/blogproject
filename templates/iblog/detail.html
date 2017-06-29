@@ -1,4 +1,4 @@
-{% extends 'full-width.html' %}
+{% extends 'detailbase.html' %}
 
 {% block main %}
 <article class="post post-1">
@@ -10,7 +10,7 @@
                                 datetime="{{post.created_time}}"> {{post.created_time.date}}</time></a></span>
 			    <span class="post-author"><a href="#">{{post.auth}}</a></span>
                 <span class="comments-link"><a href="#comment-list-panel">{{post.comment_set.count}} Comment(s)</a></span>
-                            <span class="views-count"><a href="#">588 Read</a></span>
+                            <span class="views-count"><a href="#">{{post.views}} Read</a></span>
                         </div>
                     </header>
                     <div class="entry-content clearfix">
@@ -71,24 +71,6 @@
 {% endblock main %}
 
 {% block toc %}               
-<div class="widget widget-content">
-                    <h3 class="widget-title">文章目录</h3>
-                    <ul>
-                        <li>
-                            <a href="#">教程特点</a>
-                        </li>
-                        <li>
-                            <a href="#">谁适合这个教程</a>
-                        </li>
-                        <li>
-                            <a href="#">在线预览</a>
-                        </li>
-                        <li>
-                            <a href="#">资源列表</a>
-                        </li>
-                        <li>
-                            <a href="#">获取帮助</a>
-                        </li>
-                    </ul>
-                </div>
+<h3 class="widget-title">INDEX</h3>
+{{toc|safe}}
 {% endblock toc %}
